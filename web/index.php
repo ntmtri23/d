@@ -22,7 +22,7 @@
             <p class="noCanvasMsg" align="center">Ôi không?.Trình duy?t c?a b?n không h? tr? html5<br />Hãy nâng c?p nó.</p>
         </canvas>
     </div>
-    <a href="fprocess.php" style="display:none;" class="show-form-infomation fancybox fancybox.ajax">#EE</a>
+    <a href="Infomation.php" style="display:none;" class="show-form-infomation fancybox fancybox.ajax">#EE</a>
     <a id="various2" href="#inline2" style="display:none;" class="show-result-spin">#EE</a>
     <input type="hidden" value="@ViewBag.LuckyDrawId" id="lkdit" />
     <input type="hidden" value="img/luckydrawab3.png" id="spinImagePath" />
