@@ -1,4 +1,3 @@
-﻿
 <link rel="stylesheet" href="css/main.css" type="text/css" />
 <script type='text/javascript' src='js/winwheel_1.2.js'></script>
 <script type="text/javascript" src="/fancybox/lib/jquery-1.10.1.min.js"></script>
@@ -22,7 +21,7 @@
    
     <div class="the_wheel" align="center" valign="center" style="width:475px;height:582px;padding-top:100px; border-top:1px solid #d9ac1a;-webkit-box-shadow: 2px 1px 22px 7px rgba(0,0,0,0.75);-moz-box-shadow: 2px 1px 22px 7px rgba(0,0,0,0.75);box-shadow: 2px 1px 22px 7px rgba(0,0,0,0.75);float:left;-webkit-border-radius: 10px;-moz-border-radius: 10px;border-radius: 10px;">
         <canvas class="the_canvas" id="myDrawingCanvas" width="434" height="434" onclick="PreSpin();" style="cursor:pointer;">
-            <p class="noCanvasMsg" align="center">Ôi không?.Trình duyệt của bạn không hổ trợ html5<br />Hãy nâng cấp nó.</p>
+            <p class="noCanvasMsg" align="center">�i kh�ng?.Tr�nh duy?t c?a b?n kh�ng h? tr? html5<br />H�y n�ng c?p n�.</p>
         </canvas>
     </div>
    
