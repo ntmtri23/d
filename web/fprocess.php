@@ -11,27 +11,29 @@ session_start();
 
 // setup application using API keys and handlers
 $fb = new Facebook\Facebook([
-  'app_id' => '317915161665904',
-  'app_secret' => '8b0cefa9b50d1a02612d9d07c9a3f314',
+  'app_id' => '1616272128625137',
+  'app_secret' => 'e9cffe45e3f14a54dc0d311ed3efb4b2',
   'http_client_handler' => 'curl', // can be changed to stream or guzzle
   'persistent_data_handler' => 'session' // make sure session has started
 ]);
 
 // login helper with redirect_uri
 $helper = $fb->getRedirectLoginHelper();
-
+$userid = $fb->getUser();
+var_dump($userid);die();
 // see if we have a code in the URL
 if ( isset( $_GET['code'] ) ) {
   
   // get new access token if we've been redirected from login page
   try {
     // get access token
-    $access_token = $helper->getAccessToken();
-    
+    //$access_token = $helper->getAccessToken();
+    var_dump($access_token);
+    die();
     // save access token to persistent data store
     $helper->getPersistentDataHandler()->set( 'access_token', $access_token );
   } catch ( Exception $e ) {
-    // error occured
+    echo($e);
   }
 
 }
@@ -56,6 +58,7 @@ if ( $access_token && !$access_token->isExpired() ) {
   }
   
   $me = $response->getGraphUser();
+  
   echo '<p>Logged in as ' . $me->getName() . '</p>';
   
   echo '<pre>' . print_r( $me, 1 ) . '</pre>';
