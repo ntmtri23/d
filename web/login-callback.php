@@ -23,7 +23,7 @@
     if (isset($accessToken)) {
       // Logged in!
       $_SESSION['facebook_access_token'] = (string) $accessToken;
-      var_dump($_SESSION['facebook_access_token']);
+      //var_dump($_SESSION['facebook_access_token']);
       $response = $fb->get('/me', $accessToken);
       // Exchange the short-lived token for a long-lived token.
       $longLivedAccessToken = $accessToken->extend();
