@@ -18,7 +18,7 @@ try
     $permissions = ['email','user_birthday']; // optional
     $loginUrl = $helper->getLoginUrl('https://fbappapp.herokuapp.com/login-callback.php', $permissions);
     
-    echo '<a href="' . $loginUrl . '">Log in with Facebook!</a>';
+    echo '<a href="' . $loginUrl . '" target="_top">Log in with Facebook!</a>';
 }
 catch(exception $ex)
 {
