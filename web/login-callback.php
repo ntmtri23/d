@@ -39,5 +39,5 @@
   
 ?>
 <div>
-    <?php echo 'Chao ban ' . $me->name; ?>
+    <?php echo 'Chao ban ' . $me->getName(); ?>
 </div>
