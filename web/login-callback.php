@@ -13,6 +13,10 @@
         'modal': true
     });
     
+    $("#various3").fancybox({
+        'modal': true
+    });
+    
 </script>
 
 <?php
