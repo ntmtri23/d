@@ -1,5 +1,7 @@
 <?php
     session_start();
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
     require_once( 'facebook/autoload.php' );
     try
     {
@@ -21,7 +23,7 @@
               echo 'Facebook SDK returned an error: ' . $e->getMessage();
               exit;
             }
-            
+            echo 1111;
             if (isset($accessToken)) {
               // Logged in!
               $_SESSION['facebook_access_token'] = (string) $accessToken;
