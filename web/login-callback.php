@@ -23,7 +23,6 @@
               echo 'Facebook SDK returned an error: ' . $e->getMessage();
               exit;
             }
-            echo 1111;
             if (isset($accessToken)) {
               // Logged in!
               $_SESSION['facebook_access_token'] = (string) $accessToken;
@@ -31,13 +30,14 @@
               $response = $fb->get('/me', $_SESSION['facebook_access_token']);
               // Exchange the short-lived token for a long-lived token.
               $me = $response->getGraphUser();
-              var_dump($me);
-
         }
     }
     catch(exception $ex)
     {
         var_dump($ex);
-    	echo 111;
     }
+  
 ?>
+<div>
+    <?php echo 'Chao ban ' . $me->name; ?>
+</div>
