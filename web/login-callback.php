@@ -1,3 +1,20 @@
+<link rel="stylesheet" href="css/main.css" type="text/css" />
+<script type='text/javascript' src='js/winwheel_1.2.js'></script>
+<script type="text/javascript" src="fancybox/lib/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="fancybox/source/jquery.fancybox.js?v=2.1.5"></script>
+<link rel="stylesheet" type="text/css" href="fancybox/source/jquery.fancybox.css?v=2.1.5" media="screen" />
+
+<script type="text/javascript">
+	$(document).ready(function () {
+		$('.fancybox').fancybox();
+	});
+    
+    $("#various2").fancybox({
+        'modal': true
+    });
+    
+</script>
+
 <?php
     session_start();
     error_reporting(E_ALL);
@@ -36,8 +53,15 @@
     {
         var_dump($ex);
     }
-  
 ?>
+
 <div>
-    <?php echo 'Chao ban ' . $me->getName(); ?>
+    <a id="various2" href="#inline2" style="display:none;" class="show-result-spin">#EE</a>
+    <div id="inline2" class="message-complete" style="width:550px;height:350px;background:url('img/bgresult.png');padding-left:20px;padding-top:50px;color:#ffffff;padding-right:20px;text-align:justify;line-height:30px;display:none;">
+        <?php echo 'B?n s? tham gia trò choi v?i tu cách là : ' . $me->getName(); ?>
+    </div>
 </div>
+
+<script type="text/javascript">
+     $('.show-result-spin').click();
+</script>
