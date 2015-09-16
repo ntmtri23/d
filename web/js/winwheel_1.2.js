@@ -126,6 +126,7 @@ function initialDraw(e)
 
 function initialVariable(data,luckyDrawId)
 {
+    data = 'a,b,c,d,e,f,g,h';
     var arrPrizes = data.split(',');
     prizes[0] = { "name": arrPrizes[0], "startAngle": 0, "endAngle": 44 };
     for (var i = 1; i < arrPrizes.length; i++)
@@ -148,7 +149,7 @@ function startSpin(determinedValue, luckyDrawId)
     }
     else
     {
-        stopAngle = determinedValue;
+        stopAngle = 46;//determinedValue;
     }
     //alert(spinMode);
 	//// This is the angle (0-360) around the wheel that is to be positioned where the pointer is located when the wheel stops.
