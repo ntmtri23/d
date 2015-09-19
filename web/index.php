@@ -14,7 +14,7 @@
 
 try
 {
-    php_info();
+    phpinfo();
     session_start();
     require_once( 'facebook/autoload.php' );
     // setup application using API keys and handlers
