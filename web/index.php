@@ -27,8 +27,6 @@ try
     $helper = $fb->getRedirectLoginHelper();
     $permissions = ['email','user_birthday']; // optional
     $loginUrl = $helper->getLoginUrl('https://fbappapp.herokuapp.com/login-callback.php', $permissions);
-    
-    echo '<a href="' . $loginUrl . '" target="_top">Log in with Facebook!</a>';
 }
 catch(exception $ex)
 {
@@ -51,14 +49,11 @@ catch(exception $ex)
     </div>
     <a href="<?php echo $loginUrl; ?>" class="show-form-infomation fancybox fancybox.ajax" style="display: none;">#EE</a>
     <a id="various2" href="#inline2" style="display:none;" class="show-result-spin">#EE</a>
-    <input type="hidden" value="@ViewBag.LuckyDrawId" id="lkdit" />
     <input type="hidden" value="img/luckydrawab3.png" id="spinImagePath" />
     <div id="inline2" class="message-complete" style="width:550px;height:350px;background:url('img/bgresult.png');padding-left:20px;padding-top:50px;color:#ffffff;padding-right:20px;text-align:justify;line-height:30px;display:none;">
     </div>
-    <a href="api.php">API</a>
 </div>
 <script type="text/javascript">
-    var lkdit = $("#lkdit").val();
     var spinImagePath = $("#spinImagePath").val();
     begin(spinImagePath);
     var itemList = $('#itemNameList').val();

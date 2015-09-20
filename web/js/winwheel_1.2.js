@@ -126,7 +126,7 @@ function initialDraw(e)
 
 function initialVariable(data,luckyDrawId)
 {
-    data = 'a,b,c,d,e,f,g,h';
+    //data = 'a,b,c,d,e,f,g,h';
     var arrPrizes = data.split(',');
     prizes[0] = { "name": arrPrizes[0], "startAngle": 0, "endAngle": 44 };
     for (var i = 1; i < arrPrizes.length; i++)

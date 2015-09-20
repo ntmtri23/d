@@ -21,42 +21,47 @@
 
 <?php
     session_start();
-    error_reporting(E_ALL);
-    ini_set('display_errors', 1);
     require_once( 'facebook/autoload.php' );
+    define("LUCKY_DRAW_ID","401a0f70-cc1d-e511-941c-001c42aaff6e");
     try
     {
-            $fb = new Facebook\Facebook([
-              'app_id' => '1616272128625137',
-              'app_secret' => 'e9cffe45e3f14a54dc0d311ed3efb4b2',
-              'http_client_handler' => 'curl', // can be changed to stream or guzzle
-              'persistent_data_handler' => 'session' // make sure session has started
-            ]);
-            $helper = $fb->getRedirectLoginHelper();
-            try {
-              $accessToken = $helper->getAccessToken();
-            } catch(Facebook\Exceptions\FacebookResponseException $e) {
-              // When Graph returns an error
-              echo 'Graph returned an error: ' . $e->getMessage();
-              exit;
-            } catch(Facebook\Exceptions\FacebookSDKException $e) {
-              // When validation fails or other local issues
-              echo 'Facebook SDK returned an error: ' . $e->getMessage();
-              exit;
-            }
-            if (isset($accessToken)) {
-              // Logged in!
-              $_SESSION['facebook_access_token'] = (string) $accessToken;
-              //var_dump($_SESSION['facebook_access_token']);
-              $response = $fb->get('/me', $_SESSION['facebook_access_token']);
-              // Exchange the short-lived token for a long-lived token.
-              $me = $response->getGraphUser();
+        $fb = new Facebook\Facebook([
+          'app_id' => '1616272128625137',
+          'app_secret' => 'e9cffe45e3f14a54dc0d311ed3efb4b2',
+          'http_client_handler' => 'curl', // can be changed to stream or guzzle
+          'persistent_data_handler' => 'session' // make sure session has started
+        ]);
+        $helper = $fb->getRedirectLoginHelper();
+        try {
+          $accessToken = $helper->getAccessToken();
+        } catch(Facebook\Exceptions\FacebookResponseException $e) {
+          // When Graph returns an error
+          echo 'Graph returned an error: ' . $e->getMessage();
+          exit;
+        } catch(Facebook\Exceptions\FacebookSDKException $e) {
+          // When validation fails or other local issues
+          echo 'Facebook SDK returned an error: ' . $e->getMessage();
+          exit;
+        }
+        if (isset($accessToken)) {
+          // Logged in!
+          $_SESSION['facebook_access_token'] = (string) $accessToken;
+          //var_dump($_SESSION['facebook_access_token']);
+          $response = $fb->get('/me', $_SESSION['facebook_access_token']);
+          // Exchange the short-lived token for a long-lived token.
+          $_SESSION['CurrentLoginUser'] = $response->getGraphUser();
         }
     }
     catch(exception $ex)
     {
         var_dump($ex);
     }
+    $itemList = '';
+    $xml = simplexml_load_file('http://fbapp.trathuong.com/ActionService.asmx/GetItemList?luckydrawId=401a0f70-cc1d-e511-941c-001c42aaff6e');
+	foreach($xml->LuckyDrawItemModel as $item)
+	{
+	   $itemList = $itemList . ',' . $item->ItemName;
+	}
 ?>
 
 <div class="row">
@@ -67,23 +72,22 @@
     </div>
     <a href="<?php echo $loginUrl; ?>" class="show-form-infomation fancybox fancybox.ajax" style="display: none;">#EE</a>
     <a id="various2" href="#inline2" style="display:none;" class="show-result-spin">#EE</a>
-    <input type="hidden" value="@ViewBag.LuckyDrawId" id="lkdit" />
     <input type="hidden" value="img/luckydrawab3.png" id="spinImagePath" />
+    <input type="hidden" value="<?php echo $itemList; ?>" id= "itemNameList" />
     <div id="inline2" class="message-complete" style="width:550px;height:350px;background:url('img/bgresult.png');padding-left:20px;padding-top:50px;color:#ffffff;padding-right:20px;text-align:justify;line-height:30px;display:none;">
     </div>
 </div>
 
 <script type="text/javascript">
-    var lkdit = $("#lkdit").val();
     var spinImagePath = $("#spinImagePath").val();
     begin(spinImagePath);
     var itemList = $('#itemNameList').val();
-    initialVariable(itemList, lkdit);
+    initialVariable(itemList, '401a0f70-cc1d-e511-941c-001c42aaff6e');
 </script>
 
 <div>
     <a id="various2" href="#inline2" style="display:none;" class="show-infomation-form">#EE</a>
-    <div id="inline2" style="padding-left:20px;padding-top:50px;color:#ffffff;padding-right:20px;text-align:justify;line-height:30px;">
+    <div id="inline2" style="padding-left:20px;padding-top:50px;color:#ffffff;padding-right:20px;text-align:justify;line-height:30px;display: none;">
         <div class="panel-body">
             <div class="example-box-wrapper">
                 <div class="form-group">
