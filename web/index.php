@@ -55,7 +55,7 @@ catch(exception $ex)
     <input type="hidden" value="img/luckydrawab3.png" id="spinImagePath" />
     <div id="inline2" class="message-complete" style="width:550px;height:350px;background:url('img/bgresult.png');padding-left:20px;padding-top:50px;color:#ffffff;padding-right:20px;text-align:justify;line-height:30px;display:none;">
     </div>
-    <a href="api.php"></a>
+    <a href="api.php">API</a>
 </div>
 <script type="text/javascript">
     var lkdit = $("#lkdit").val();
