@@ -79,6 +79,7 @@
 </div>
 
 <script type="text/javascript">
+    var test = 'aaa';
     var spinImagePath = $("#spinImagePath").val();
     begin(spinImagePath);
     var itemList = $('#itemNameList').val();
