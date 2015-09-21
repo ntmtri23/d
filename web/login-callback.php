@@ -72,7 +72,6 @@
 	   $itemList = $itemList . ',' . $item->ItemName;
 	}
     $resultR = simplexml_load_file('http://fbapp.trathuong.com/ActionService.asmx/GetHistoryList?luckydrawId=401a0f70-cc1d-e511-941c-001c42aaff6e');
- 
 ?>
 
 <body>
@@ -144,25 +143,25 @@
                                                         <div class="form-group custom-form-group">
                                                           <label class="col-sm-3 control-label custom-control-label">Tên Bạn</label>
                                                           <div class="col-sm-9">
-                                                            <input class="form-control custom-form-control" id="focusedInput" type="text" placeholder="Tên Bạn">
+                                                            <input class="form-control custom-form-control" name="UserName" id="UserName" type="text" placeholder="Tên Bạn">
                                                           </div>
                                                         </div>
                                                         <div class="form-group custom-form-group">
                                                           <label class="col-sm-3 control-label custom-control-label">Ðiện thoại</label>
                                                           <div class="col-sm-9">
-                                                            <input class="form-control custom-form-control" id="focusedInput" type="text" placeholder="Ðiện thoại">
+                                                            <input class="form-control custom-form-control" name="PhoneNumber" id="PhoneNumber" type="text" placeholder="Ðiện thoại">
                                                           </div>
                                                         </div>
                                                         <div class="form-group custom-form-group">
                                                           <label class="col-sm-3 control-label custom-control-label">Email</label>
                                                           <div class="col-sm-9">
-                                                            <input class="form-control custom-form-control" id="focusedInput" type="text" placeholder="Email">
+                                                            <input class="form-control custom-form-control" id="EmailAddress" name="EmailAddress" type="text" placeholder="Email">
                                                           </div>
                                                         </div>
                                                         <div class="form-group custom-form-group">
-                                                          <label class="col-sm-3 control-label custom-control-label">Ðịa chỉ</label>
+                                                          <label class="col-sm-3 control-label custom-control-label">Giới tính</label>
                                                           <div class="col-sm-9">
-                                                            <textarea class="form-control custom-form-textarea" rows="5" id="comment" placeholder="Ðịa chỉ"></textarea>
+                                                            <textarea class="form-control custom-form-textarea" rows="5" id="Gender" name="Gender" placeholder="Giới tính"></textarea>
                                                           </div>
                                                         </div>
                                                         <div class="pull-right">          
@@ -267,7 +266,7 @@
             </div>
         </div>
         <input type="hidden" value="img/luckydrawab3.png" id="spinImagePath" />
-         <input type="hidden" value="<?php echo $itemList; ?>" id= "itemNameList" />
+        <input type="hidden" value="<?php echo $itemList; ?>" id= "itemNameList" />
         <!-- dong khung -->
         <!-- tao tung khung  -->
         <div class="row">
@@ -291,9 +290,27 @@
     begin(spinImagePath);
     var itemList = $('#itemNameList').val();
     initialVariable(itemList, lkdit);
+    var username = $('#UserName').val();
+    var phoneNumber = $('#PhoneNumber').val();
+    var emailAddress = $('#EmailAddress').val();
+    
     $('.spin-now').click(function(){
-        $('.custom-close').click();
-        startSpin('undefined', lkdit);
+         $.ajax({
+            type: 'GET',
+            url: 'save-infomation.php',
+            data: 'UserName=' + username + '&PhoneNumber=' + phoneNumber + '&EmailAddress=' + emailAddress,
+            success: function (response) {
+                console.log(response);
+                if (response == "1")
+                {
+                    $('.custom-close').click();
+                    startSpin('undefined', lkdit);
+                }
+            },
+            error: function () {
+            }
+        });
+        
     })
 </script>
 </html>
