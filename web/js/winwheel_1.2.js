@@ -44,7 +44,7 @@ var theSpeed         = 50; 		 // Controls how often the spin function is called 
 var pointerAngle     = 0;  	 	 // The angle / location around the wheel where the pointer indicaing the prize is located. Can be any value you like, 0 is top (12 oclock) 180 is bottom (6 o'clock) etc.
 var doPrizeDetection = true; 	 // Set to true if you want the code to detect the prize the user has won when the spinning has stopped. Prizes need to be specified in the prizes array.
 var spinMode = "determinedAngle"; // Values can be: random, determinedAngle, determinedPrize.
-var determinedGetUrl = "/LuckyDraw/Result";  	 // Set to URL of the server-side process to load via ajax when spinMode is determinedAngle or determinedPrize.
+var determinedGetUrl = "getresult.php";  	 // Set to URL of the server-side process to load via ajax when spinMode is determinedAngle or determinedPrize.
 /*
 	The following files included in the download can be used to test the different modes (you will need an Apache server; I use XAMPP on my local machine).
 	determinedPrize: get_determined_prize.php;  // Always returns "2" (so will win prize 3).
@@ -143,13 +143,14 @@ function startSpin(determinedValue, luckyDrawId)
     resetWheel();
     if (determinedValue == 'undefined')
     {
+        console.log(determinedValue);
         var params = 'luckyDrawId=' + luckyDrawId;
         xhr.open('GET', determinedGetUrl + '?' + params, true);
         xhr.send("");
     }
     else
     {
-        stopAngle = 46;//determinedValue;
+        stopAngle = determinedValue;//determinedValue;
     }
     //alert(spinMode);
 	//// This is the angle (0-360) around the wheel that is to be positioned where the pointer is located when the wheel stops.
@@ -382,12 +383,13 @@ function doSpin()
 			{
 				if ((relativeAngle >= prizes[x]['startAngle']) && (relativeAngle <= prizes[x]['endAngle']))
 				{
-              
 					// Do something with the knowlege. For this example the user is just alerted, but you could play a sound,
 					// change the innerHTML of a div to indicate the prize etc - up to you.
-				    $('.message-complete').show();
+				    /*$('.message-complete').show();
 				    $('.message-complete').html("<span style = 'font-size:24pt;text-shadow: 2px 2px #ff0000;'>CHÚC MỪNG</span><br /><span style = 'font-size:16pt;text-shadow: 2px 2px #ff0000;'>Bạn vừa quay được <span style = 'font-weight:bold;font-size:18pt;'> [ " + prizes[x]['name'] + " ] </span></span>.<br /> <span style = 'font-size:16pt;text-shadow: 2px 2px #ff0000;'>Cảm ơn bạn đã tham gia chương trình.</span> <br /><span style = 'font-size:16pt;text-shadow: 2px 2px #ff0000;'>Giải thưởng sẽ được chuyển đến bạn trong thời gian sớm nhất.</span><br /><br /> <a class = 'btn btn-default' href='javascript:;' onclick='$.fancybox.close();'>Hoàn tất</a>")
-				    $('.show-result-spin').click();
+				    $('.show-result-spin').click();*/
+                    $('.data-result-val').html('[' + prizes[x]['name'] + ']');
+                    $('.show-result').click();
 					break;
 				}
 			}

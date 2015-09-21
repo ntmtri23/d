@@ -1,0 +1,712 @@
+body{
+	padding:0px !important;
+}
+
+.navbar{
+	margin-bottom:0 !important;
+}
+.box {
+    position: relative;
+    background: #b2e21e;
+    _margin-bottom: 20px;
+    width: 100%;
+}
+.no-padding{
+	padding:0;
+}
+.box-header {
+    position: relative;
+}
+
+.box-body {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    padding: 10px;
+}
+
+.box-body>.table {
+    margin-bottom: 0;
+}
+
+.table-bordered {
+    border: 1px solid #f4f4f4;
+}
+
+.box-footer {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border-top: 1px solid #f4f4f4;
+    padding: 10px;
+    background-color: #fff;
+}
+
+.box-header:before, .box-body:before, .box-footer:before, .box-header:after, .box-body:after, .box-footer:after {
+    content: " ";
+    display: table;
+}
+
+.box-header:after, .box-body:after, .box-footer:after {
+    clear: both;
+}
+
+.pull-right {
+    float: right;
+}
+
+.no-margin {
+    margin: 0 !important;
+}
+
+.box-header>.box-tools {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+}
+
+.pagination {
+    display: inline-block;
+    padding-left: 0;
+    margin: 20px 0;
+}
+.nav-tabs-custom>.nav-tabs.pull-right {
+    float: none!important;
+}
+
+.nav-tabs-custom>.nav-tabs.pull-right>li:first-of-type {
+    margin-right: 0;
+}
+.nav-tabs-custom>.nav-tabs.pull-right>li {
+    float: right;
+}
+.nav-tabs-custom>.nav-tabs>li:first-of-type {
+    margin-left: 0;	
+	width:37.5%;
+}
+
+.nav-tabs-custom>.nav-tabs>li.active a{
+	background-color:#ffc600;
+	color:#3f4547;
+	cursor:pointer;
+	border-color:#ffc600;
+}
+.nav-tabs-custom>.nav-tabs>li a{
+	border-color:#3f4547;
+	border-radius:0;
+	background-color:#3f4547;
+	transition:linear 0.2s;
+	color:#cdff33;
+	margin-right:0;
+}
+.nav-tabs-custom>.nav-tabs>li a:hover{
+	border-color:white;
+	border-radius:0;
+	background-color:white;
+	transition:linear 0.2s;
+	color:#3f4547;
+}
+.nav-tabs-custom>.nav-tabs>li.header {
+    line-height: 35px;
+    padding: 0 10px;
+    font-size: 20px;
+    color: #444;
+}
+
+.nav-tabs-custom>.tab-content {
+    background: #fff;
+    padding: 10px;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+/*----------- MENU NAV-------------*/
+ul.menu > li.active a {
+	background-image:none !important;
+	box-shadow:none !important;
+	background-color:transparent !important;
+	border-bottom:2px solid #9fa2a4;
+	color:#8cb707 !important;    
+}
+ul.menu > li.nav-home{
+	background-image:url(../images/btn_home_hover.png);
+	background-repeat: no-repeat;
+	background-position:0 12px;
+}
+ul.menu > li.nav-home:hover{
+	background-image:url(../images/btn_home_hover.png);
+	background-repeat: no-repeat;
+	background-position:0 12px;	
+}
+ul.menu > li.nav-introducttion{
+	background-image:url(../images/btn_introduction.png);
+	background-repeat: no-repeat;
+	background-position:0 10px;
+}
+ul.menu > li.nav-introducttion:hover{
+	background-image:url(../images/btn_introduction_hover.png);
+	background-repeat: no-repeat;
+	background-position:0 10px;
+}
+ul.menu > li.nav-introducttion a:hover{
+	color:#8cb707;
+	border-bottom:2px solid #9fa2a4;
+}
+ul.menu > li.nav-contact{
+	background-image:url(../images/btn_contact.png);
+	background-repeat: no-repeat;
+	background-position:0 10px;
+}
+ul.menu > li.nav-contact:hover{
+	background-image:url(../images/btn_contact_hover.png);
+	background-repeat: no-repeat;
+	background-position:0 10px;
+}
+ul.menu > li.nav-contact a:hover{
+	color:#8cb707;
+	border-bottom:2px solid #9fa2a4;
+}
+.logo-text{
+	padding: 21px 10px;
+	font-size:27px;
+	font-weight:bold;
+	color:#8cb707 !important;
+}
+.logo-text p{
+	margin: 0;
+	font-size:14px;
+	font-weight:normal;
+	color:#777 !important;
+}
+.container .navbar-bg{
+	min-height:70px;
+	_background-image:url(../images/nav_bg.png);
+	background-repeat:no-repeat;
+	background-position:bottom;
+}
+.nav-bg .nav-border{
+	border:none !important;
+}
+ul.menu > li{
+	margin:0 20px 0 20px;
+	padding:0 0 2px 25px;
+}
+.navbar-default .nav-toggle-fix{
+	margin:20px 20px 10px;
+	border-radius:0;
+	background-color:#8cb707;
+}
+.navbar-default .nav-toggle-fix:focus{
+	background-color:#8cb707;
+}
+.navbar-default .nav-toggle-fix:hover{
+	background-color:#8cb707;
+}
+.navbar-default .nav-toggle-fix .icon-bar-fix{
+	background-color:white;
+}
+/*----------- END MENU NAV-------------*/
+
+/*----------- SHARE-------------*/
+.box-header .share{
+	margin-right:20px;
+}
+.btn_share{
+	background-image:url(../images/btn_share.png);
+	background-repeat:no-repeat;
+	border-radius:0;
+	background-color:white;
+	background-position:4px center;
+	padding:8px 8px 8px 34px;
+	font-size:20px;
+	color:#346db4;
+}
+.btn_like{
+	background-image:url(../images/btn_like.png);
+	background-repeat:no-repeat;
+	border-radius:0;
+	background-color:transparent;
+	padding:22px 22px 22px 22px;
+}
+.btn_like:hover{
+	background-image:url(../images/btn_like_hover.png);
+	background-repeat:no-repeat;
+	border-radius:0;
+	background-color:transparent;
+	padding:22px 22px 22px 22px;
+}
+.btn_facebook{
+	background-image:url(../images/btn_facebook.png);
+	background-repeat:no-repeat;
+	border-radius:0;
+	background-color:transparent;
+	padding:22px 22px 22px 22px;
+}
+.btn_facebook:hover{
+	background-image:url(../images/btn_facebook_hover.png);
+	background-repeat:no-repeat;
+	border-radius:0;
+	background-color:transparent;
+	padding:22px 22px 22px 22px;
+}
+.btn_youtube{
+	background-image:url(../images/btn_youtube.png);
+	background-repeat:no-repeat;
+	border-radius:0;
+	background-color:transparent;
+	padding:22px 22px 22px 22px;
+}
+.btn_youtube:hover{
+	background-image:url(../images/btn_youtube_hover.png);
+	background-repeat:no-repeat;
+	border-radius:0;
+	background-color:transparent;
+	padding:22px 22px 22px 22px;
+}
+/*----------- QUAY SỐ LEFT-------------*/
+.box-body{
+	position:relative;
+}
+.quayso{
+	width: 500px;
+    margin:0 auto 105px;
+    position: relative;
+}
+.box-body .bg_left{
+	width:500px;
+    height:500px;
+    background-image:url(../images/bg_left.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+	position:relative;
+}
+.box-body .bg_left .table_quay{
+	width:400;
+	height:400;
+    background-repeat: no-repeat;
+	position:absolute;
+	top:230px;
+	right:15px;
+	background-size: contain;
+}
+
+.box-body .bg_left .btn_quay{
+	width:100;
+	height:100;
+    background-image:url(../images/btn_quay.png);
+    background-repeat: no-repeat;
+	position:absolute;
+	top:150px;
+	right:150px;
+	background-size: contain;
+	outline:none;
+}
+/*----------- THONG TIN-------------*/
+.custom-modal-content {
+	box-shadow:none;
+	border-radius:0;
+
+}
+.custom-modal-content .custom-modal-header{
+	border-bottom:none;
+	background-color:#3f4547;
+	color:#cdff33;
+}
+.custom-modal-content .custom-modal-header .custom-close{
+	color:#cdff33;
+	text-shadow:none;
+	opacity:1;
+	font-weight:normal;
+	font-size:18px;
+}
+.custom-modal-content .modal-body .custom-form-group .custom-form-control{
+	border-radius:0;
+	padding: 20px 12px;	
+}
+.custom-modal-content .modal-body .custom-form-group .custom-control-label{
+	font-size: 15px;
+    font-weight: normal;
+	color:#708890;
+}
+.custom-modal-content .modal-body .custom-btn{
+	border-radius:0;
+	background-color:#ffc600;
+	color:#3f4547;
+	transition:linear 0.2s;
+}
+.custom-modal-content .modal-body .custom-btn:hover{
+	background-color: #3f4547;
+    color: #cdff33;
+	transition:linear 0.2s;
+}
+.custom-modal-content .modal-body .custom-form-group .custom-form-textarea{
+	padding:10px;
+	border-radius:0;
+	resize:none;
+}
+/*----------- END THONG TIN-------------*/
+/*----------- COMMENT-------------*/
+.comment{
+	height:573;
+	background-image:url(../images/bg_right.png);
+	background-repeat:no-repeat;
+	background-size: contain;
+	position:relative;
+	z-index:4;
+}
+.nav-tabs-custom {
+    margin:0 0 20px;
+	padding-top:120px;
+    border-radius: 3px;
+	margin-left:50px;
+}
+.nav-tabs-custom li a{
+	font-size:20.7px;
+}
+.nav-tabs-custom li a.icons_bangvang {
+	background-image:url(../images/icons_bangvang.png);
+	background-repeat:no-repeat;
+	padding: 10px 5px 10px 28px;
+	background-position:7px center;
+}
+.nav-tabs-custom li a.icons_giaithuong {
+	background-image:url(../images/icons_giaithuong.png);
+	background-repeat:no-repeat;
+	padding:10px 10px 10px 28px;
+	background-position:7px center;
+}
+.nav-tabs-custom li a.icons_binhluan {
+	background-image:url(../images/icons_binhluan.png);
+	background-repeat:no-repeat;
+	padding:10px 10px 10px 28px;
+	background-position:7px center;
+}
+.footer_bg{
+	background-image:url(../images/bg_footer.png);
+	background-repeat:no-repeat;
+	background-position:bottom;
+}
+.bg-quay{
+	background-image:url(../images/bg_quay.jpg);
+	background-repeat:no-repeat;
+	height:240;
+	background-size: cover;
+}
+.bg-quay .baloon{
+	background-image:url(../images/bongbong.png);
+	background-repeat:no-repeat;
+	height:266;
+	background-size:contain;
+}
+.bg-quay .gift{
+	background-image:url(../images/gift.png);
+	background-repeat:no-repeat;
+	z-index: 3;
+    position: absolute;
+    padding: 100px;
+    right: 390;
+    top: 1125;
+    background-size: initial;
+}
+.bg-quay .gift1{
+	background-image:url(../images/gift_1.png);
+	background-repeat:no-repeat;
+	z-index: 3;
+    position: absolute;
+    padding: 182px;
+    right: 420;
+    top: 960;
+    background-size: contain;
+}
+/*-----------END COMMENT-------------*/
+/*-----------GIAI THUONG-------------*/
+.custom-table-responsive .table-sp thead tr th{
+	border:0;
+}
+.custom-table-responsive .table-sp tbody tr td{
+	border:0;
+}
+/*-----------END GIAI THUONG-------------*/
+/*----------- BINH LUAN -------------*/
+.custom-well{
+	border-radius:0;
+	background-image:none;
+	background-color:transparent;
+	border:0;
+	box-shadow:none;
+	padding:0;
+}
+.custom-well .custom-form-control1{
+	padding: 16px 10px;
+}
+.custom-well .custom-btn-comment{
+	background-color: #B2E21E;
+    color: #3F4547;
+	text-decoration:none;
+}
+
+/*----------- END BINH LUAN-------------*/
+
+/*----------- TRUNG GIAI-------------*/
+.trunggiai .cus-mo-content{
+	border-radius:0;
+	box-shadow:none;
+	background-image:url(../images/chuc%20mung.png);
+	background-repeat:no-repeat;
+}
+.trunggiai .cus-mo-content .cus-modal-header{
+	border-bottom:none;
+}
+.trunggiai .cus-mo-content .cus-modal-footer{
+	border-top:none;
+}
+.trunggiai .cus-mo-content .cus-btn{
+	background-color:#b2e21e;
+    color:#3f4547;
+	text-decoration:none;
+	transition:linear 0.2s;
+}
+.trunggiai .cus-mo-content .cus-btn:hover{
+	background-color:#3f4547;
+    color:#b2e21e;
+	transition:linear 0.2s;
+}
+/*----------- END TRUNG GIAI-------------*/
+
+/*----------- SCREEN -------------*/
+@media screen and (max-width:1500px) {
+.bg-quay .gift{
+	right:170;
+}
+.bg-quay .gift1{
+	right:250;
+}
+}
+@media screen and (max-width:1400px) {
+.bg-quay .gift1{
+	right:270;
+}
+}
+@media screen and (max-width:1202px) {
+.nav-tabs-custom li a.icons_bangvang{
+	padding: 10px 4.2px 10px 28px;
+}	
+.nav-tabs-custom .nav-tabs li:first-of-type{
+    width: 33%;
+}
+.nav-tabs-custom .nav-tabs li{
+	width:33.5%;
+}
+.comment .nav-tabs-custom>.nav-tabs>li a{
+	font-size:15px;
+}
+.bg-quay .gift1{
+	right:280;
+	padding:166;
+	top:940;
+}
+.bg-quay .gift{
+	right:30;
+	top:1074;
+}
+/*-----------QUAY SỐ LEFT-------------*/
+.box-body .bg_left{
+	width:450px;
+    height:450px;
+}
+.box-body .bg_left .table_quay{
+	width:380px;
+    height:380px;
+	top:210px;
+	right:0px;
+}
+.box-body .bg_left .btn_quay{
+	width:100;
+	height:100;
+   	top:140px;
+	right:141px;
+}
+
+}
+@media screen and (max-width:1199px) {
+.nav-tabs-custom .nav-tabs li:first-of-type{
+    width: 36.5%;
+}
+.nav-tabs-custom .nav-tabs li{
+	width:31.7%;
+}
+.bg-quay .gift1{
+    top: 857;
+    padding: 185;
+	right:190;
+}
+.bg-quay .gift{
+    top: 1027;
+	right:110;
+}
+.nav-tabs-custom li a{
+	font-size:15.5px;
+}
+.nav-tabs-custom{
+	padding-top:90px;
+}
+}
+@media screen and (max-width:991px) {
+.custom-table-responsive .table-sp thead,.custom-table-responsive .table-sp tbody{
+	font-size:14px;
+}
+.nav-tabs-custom > .nav-tabs > li:first-of-type{
+	width:100%;
+}	
+.bg-quay .gift1{
+	top: -62;
+    padding: 151;
+    right: 70;
+}
+.bg-quay .gift{
+	top:40px;
+	right:10px;
+}
+.bg-quay{
+	position:relative;
+}
+.bg-quay .baloon{
+	background-image:url(../images/bongbong.png);
+	background-repeat:no-repeat;
+	position:absolute;
+	top:-130px;
+	left:5px;
+	padding:200px;
+}
+.nav-tabs-custom{
+	padding-top:70px;
+}
+/*-----------QUAY SỐ LEFT-------------*/
+.box-body .bg_left{
+	width:350px;
+    height:350px;
+}
+.box-body .bg_left .table_quay{
+	width:280px;
+    height:280px;
+	top:160px;
+	right:10px;
+}
+.box-body .bg_left .btn_quay{
+	width:100;
+	height:100;
+   	top:90px;
+	right:91px;
+}
+.nav-tabs-custom>.nav-tabs>li{
+	width:100%;
+}
+
+}
+@media screen and (max-width:767px) {
+.custom-table-responsive .table-sp thead,.custom-table-responsive .table-sp tbody{
+	font-size:15px;
+}
+.bg-quay .gift1{
+	display:none;
+}
+.nav-tabs-custom{
+	padding-top:20%;
+}
+#Awars{
+	padding:0;
+}
+.nav-tabs-custom{
+	z-index:2;
+    position: absolute;
+    width: 100%;
+}
+.bg-quay .baloon{
+	top:-33px;
+	padding:150px;
+}
+/*-----------QUAY SỐ LEFT-------------*/	
+.box-body .bg_left{
+	width:500px;
+    height:500px;
+}
+.box-body .bg_left .table_quay{
+	width:400px;
+    height:400px;
+	top:230px;
+	right:15px;
+}
+.box-body .bg_left .btn_quay{
+	width:100;
+	height:100;
+   	top:150px;
+	right:152px;
+}
+.nav-tabs-custom {
+	margin-left:0;
+}
+}
+
+@media screen and (min-width:768px) {
+.navbar-bg .menu li a{
+
+}
+/*----------- SHARE -------------*/
+.box-header .share{
+	margin-right:10px;
+}
+/*----------- MENU NAV-------------*/
+
+ul.menu > li{
+	margin:30px 20px 20px 20px;
+}
+ul.menu > li a {
+	padding:0;
+}
+ul.menu > li.nav-home, ul.menu > li.nav-introducttion, ul.menu > li.nav-contact {
+	background-position:0 2px;
+}
+ul.menu > li.nav-home:hover, ul.menu > li.nav-introducttion:hover, ul.menu > li.nav-contact:hover{
+	background-position:0 2px;
+}
+.nav-bg{
+	box-shadow:none !important;
+	background-image:none !important;
+	background-color:transparent !important;
+	border-color:transparent !important;	
+}
+.navbar-bg .navbar-header .logo-text{
+	margin-left:0;
+}
+}
+@media screen and (max-width:550px) {
+.footer_bfright{
+	float:right;
+}
+.nav-tabs-custom{
+}
+/*-----------QUAY SỐ LEFT-------------*/
+.quayso{
+	width: 320px;
+    margin:0 auto 105px;
+    position: relative;
+}
+.box-body .bg_left{
+	width:310px;
+    height:310px;
+	right:20px;
+}
+.box-body .bg_left .table_quay{
+	width:270px;
+    height:270px;
+	top:145px;
+	right:-5px;
+}
+.box-body .bg_left .btn_quay{
+	width:100;
+	height:100;
+   	top:84px;
+	right:87px;
+}
+}
