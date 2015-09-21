@@ -23,11 +23,47 @@
     <script src="js/jquery-1.11.3.min.js"></script>
     <script src="Bootstrap/js/bootstrap.min.js"></script>      
     <script type='text/javascript' src='js/winwheel_1.2.js'></script>
+    
+    <?php
+        try
+        {
+            session_start();
+            require_once( 'facebook/autoload.php' );
+            // setup application using API keys and handlers
+            $fb = new Facebook\Facebook([
+              'app_id' => '1616272128625137',
+              'app_secret' => 'e9cffe45e3f14a54dc0d311ed3efb4b2',
+              'http_client_handler' => 'curl', // can be changed to stream or guzzle
+              'persistent_data_handler' => 'session' // make sure session has started
+            ]);
+            
+            $helper = $fb->getRedirectLoginHelper();
+            $permissions = ['email','user_birthday']; // optional
+            $loginUrl = $helper->getLoginUrl('https://fbappapp.herokuapp.com/login-callback.php', $permissions);
+        }
+        catch(exception $ex)
+        {
+            var_dump($ex);
+        	echo 111;
+        }
+    ?>
+    
     <script type="text/javascript">
-   
+      function PreSpin() {
+		 window.location = '<?php echo $loginUrl; ?>'
+      }
     </script>
 </head>
 <body>
+    <?php 
+        $itemList = '';
+        $itemR = simplexml_load_file('http://fbapp.trathuong.com/ActionService.asmx/GetItemList?luckydrawId=401a0f70-cc1d-e511-941c-001c42aaff6e');
+    	foreach($itemR->LuckyDrawItemModel as $item)
+    	{
+    	   $itemList = $itemList . ',' . $item->ItemName;
+    	}
+        $resultR = simplexml_load_file('http://fbapp.trathuong.com/ActionService.asmx/GetHistoryList?luckydrawId=401a0f70-cc1d-e511-941c-001c42aaff6e');
+    ?>
     <!-- container -->
     <div class="container">
         <!-- tao tung khung  -->
@@ -53,7 +89,6 @@
                             <div class="quayso">
                             <!-- TRÚNG GI?I -->
                             <div class="trunggiai">                            	
-                                <button class="btn btn-primary" data-toggle="modal" data-target="#modal-2">TRÚNG GIAI</button>
                                 <div id="modal-2" class="modal" tabindex="-1" role="dialog">
                                   <div class="modal-dialog">
                                     <div class="modal-content cus-mo-content">
@@ -81,7 +116,7 @@
                                             <p class="noCanvasMsg" align="center">Ôi không?.Trình duy?t c?a b?n không h? tr? html5<br />Hãy nâng c?p nó.</p>
                                         </canvas>
                                     	<!-- click quay -->
-                                        <button type="button" class="btn btn-link btn_quay" data-toggle="modal" data-target="#myModal"></button>                
+                                        <button type="button" class="btn btn-link btn_quay" onclick="PreSpin();"></button>                
                                           <!-- Modal -->
                                           <div class="modal fade" id="myModal" role="dialog">
                                             <div class="modal-dialog">                                            
@@ -100,7 +135,7 @@
                                                           </div>
                                                         </div>
                                                         <div class="form-group custom-form-group">
-                                                          <label class="col-sm-3 control-label custom-control-label">Ði?n Tho?i</label>
+                                                          <label class="col-sm-3 control-label custom-control-label">Ðiện Thoại</label>
                                                           <div class="col-sm-9">
                                                             <input class="form-control custom-form-control" id="focusedInput" type="text" placeholder="Ðiện thoại">
                                                           </div>
@@ -112,7 +147,7 @@
                                                           </div>
                                                         </div>
                                                         <div class="form-group custom-form-group">
-                                                          <label class="col-sm-3 control-label custom-control-label">Ð?a Ch?</label>
+                                                          <label class="col-sm-3 control-label custom-control-label">Ðịa Chỉ</label>
                                                           <div class="col-sm-9">
                                                             <textarea class="form-control custom-form-textarea" rows="5" id="comment" placeholder="Ðịa chỉ"></textarea>
                                                           </div>
@@ -145,7 +180,9 @@
                                 <div class="tab-content no-padding">
                                     <!-- Morris chart - Sales -->
                                     <div class="chart tab-pane" id="revenue-chart" style="position: relative; height: 300px; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
-                                        <strong>TOPAZDINH (0938 1938 77)</strong> đã được <strong>1 chỉ vàng SJC</strong> - 22 giờ trước
+                                        <?php foreach($resultR->LuckyDrawHistoryModel as $history) { ?>
+                                            <strong><?php echo $history->UserName; ?> (<?php echo $history->PhoneNumber1; ?>)</strong> đã được <strong>1 chỉ vàng SJC</strong> - 22 giờ trước<br />
+                                        <?php } ?>
                                     </div>
                                     <div class="chart tab-pane active" id="sales-chart" style="position: relative;">
                                     <!-- GIAI THUONG -->
@@ -159,21 +196,13 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr style="background-color:#F7FFE0;">
-                                                    <td><img src="Bootstrap/images/iphone6.png" style="width:50px;height:50px;"></td>
-                                                    <td>1</td>
-                                                    <td>Iphone 6</td>
-                                                </tr>
-                                                <tr>
-                                                    <td><img src="Bootstrap/images/iphone6.png" style="width:50px;height:50px;"></td>
-                                                    <td>1</td>
-                                                    <td>Iphone 6</td>
-                                                </tr>
-                                                <tr style="background-color:#F7FFE0;">
-                                                    <td><img src="Bootstrap/images/iphone6.png" style="width:50px;height:50px;"></td>
-                                                    <td>1</td>
-                                                    <td>Iphone 6</td>
-                                                </tr>
+                                                 <?php foreach($itemR->LuckyDrawItemModel as $item) { ?>
+                                                    <tr style="background-color:#F7FFE0;">
+                                                        <td><img src="http://adsmanage.trathuong.com/Userfiles/LuckyDraw/ItemIcon/<?php echo $item->Icon; ?>" style="width:50px;height:50px;"></td>
+                                                        <td><?php echo $item->Quantity; ?></td>
+                                                        <td><?php echo $item->ItemName; ?></td>
+                                                    </tr>
+                                                  <?php } ?>     
                                             </tbody>
                                     	</table>
                                     	</div>
@@ -225,6 +254,7 @@
             </div>
         </div>
         <input type="hidden" value="img/luckydrawab3.png" id="spinImagePath" />
+        <input type="hidden" value="<?php echo $itemList; ?>" id= "itemNameList" />
         <!-- dong khung -->
         <!-- tao tung khung  -->
         <div class="row">
@@ -241,7 +271,8 @@
 <script type="text/javascript">
     var spinImagePath = $("#spinImagePath").val();
     begin(spinImagePath);
-    //var itemList = $('#itemNameList').val();
+    var lkdit = '401a0f70-cc1d-e511-941c-001c42aaff6e';
+    var itemList = $('#itemNameList').val();
     initialVariable(itemList, lkdit);
 </script>
 </html>
