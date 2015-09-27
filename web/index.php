@@ -50,7 +50,7 @@
     
     <script type="text/javascript">
       function PreSpin() {
-		 window.location = '<?php echo $loginUrl; ?>'
+		 window.location = '<?php echo $loginUrl; ?>';target='_top'
       }
     </script>
 </head>
