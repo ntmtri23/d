@@ -77,7 +77,7 @@
                                 <div class="col-xs-2 pull-right"><button type="button" class="btn btn_facebook"></button></div>
                                 <div class="col-xs-2 pull-right"><button type="button" class="btn btn_like"></button></div>
                             	<div class="col-xs-4 pull-right share">
-                                	<button type="button" class="btn btn_share">SHARE</button>
+                                    <a href="Shared.php" class="btn btn_share">CHIA SẼ</a>
                                 </div>                               
                             </div>
                             <!-- /.khong chia-->                                              
@@ -89,6 +89,7 @@
                             <div class="quayso">
                             <!-- TRÚNG GI?I -->
                             <div class="trunggiai">                            	
+                                <button style="display: none;" class="btn btn-primary show-result" data-toggle="modal" data-target="#modal-2">TRÚNG GIẢI</button>
                                 <div id="modal-2" class="modal" tabindex="-1" role="dialog">
                                   <div class="modal-dialog">
                                     <div class="modal-content cus-mo-content">
@@ -97,13 +98,13 @@
                                       </div>
                                       <div class="modal-body">
                                         <h2 class="modal-title" style="font-weight:bold;color:#3f4547;">CHÚC MỪNG BẠN</h2>
-                                        <span style="font-size:16pt;">Bạn vừa quay được <span style="font-weight:bold;font-size:18pt;color:#b2e21e;"> [ Vourcher KFC 99k ] </span></span><br>
+                                        <span style="font-size:16pt;">Bạn vừa quay được <span style="font-weight:bold;font-size:18pt;color:#b2e21e;" class="data-result-val">  </span></span><br>
                                         <span style="font-size:16pt;">Cảm ơn bạn đã tham gia chương trình.</span><br>
                                         <span style="font-size:16pt;">Giải thưởng sẽ được gửi đến bạn trong thời gian sớm nhất.</span><br>
                                         <span style="font-size:16pt;">BẠN CÒN <span style="font-weight:bold; font-size:50px;color:#ffc600;">10</span> LƯỢT QUAY</span>
                                       </div>                                      
                                       <div class="modal-footer cus-modal-footer">
-                                        <button type="button" class="btn btn-link cus-btn" data-dismiss="modal">QUAY TI?P</button>
+                                        <button type="button" class="btn btn-link cus-btn" data-dismiss="modal">QUAY TIẾP</button>
                                       </div>
                                     </div>
                                   </div>
@@ -113,7 +114,7 @@
                                 <div class="bg_left">
                                     <div class="table_quay">
                                         <canvas class="the_canvas img-responsive" id="myDrawingCanvas" width="434" height="434" onclick="PreSpin();" style="cursor:pointer;">
-                                            <p class="noCanvasMsg" align="center">Ôi không?.Trình duy?t c?a b?n không h? tr? html5<br />Hãy nâng c?p nó.</p>
+                                            <p class="noCanvasMsg" align="center">Ôi không?.Trình duyệt của bạn không hổ trợ html5<br />Hãy nâng c?p nó.</p>
                                         </canvas>
                                     	<!-- click quay -->
                                         <button type="button" class="btn btn-link btn_quay" onclick="PreSpin();"></button>                
@@ -129,31 +130,35 @@
                                                 <div class="modal-body">
                                                     <form class="form-horizontal" role="form">
                                                         <div class="form-group custom-form-group">
-                                                          <label class="col-sm-3 control-label custom-control-label">Tên B?n</label>
+                                                          <label class="col-sm-3 control-label custom-control-label">Tên Bạn</label>
                                                           <div class="col-sm-9">
-                                                            <input class="form-control custom-form-control" id="focusedInput" type="text" placeholder="Tên Bạn">
+                                                            <input class="form-control custom-form-control" name="UserName" id="UserName" type="text" placeholder="Tên Bạn">
+                                                            <label style="display: none;color:red;" class="UserName_Err">Vui lòng nhập tên của bạn</label>
                                                           </div>
                                                         </div>
                                                         <div class="form-group custom-form-group">
-                                                          <label class="col-sm-3 control-label custom-control-label">Ðiện Thoại</label>
+                                                          <label class="col-sm-3 control-label custom-control-label">Ðiện thoại</label>
                                                           <div class="col-sm-9">
-                                                            <input class="form-control custom-form-control" id="focusedInput" type="text" placeholder="Ðiện thoại">
+                                                            <input class="form-control custom-form-control" name="PhoneNumber" id="PhoneNumber" type="text" placeholder="Ðiện thoại">
+                                                            <label style="display: none;color:red;" class="PhoneNumber_Err">Vui lòng nhập SDT của bạn</label>
                                                           </div>
                                                         </div>
                                                         <div class="form-group custom-form-group">
                                                           <label class="col-sm-3 control-label custom-control-label">Email</label>
                                                           <div class="col-sm-9">
-                                                            <input class="form-control custom-form-control" id="focusedInput" type="text" placeholder="Email">
+                                                            <input class="form-control custom-form-control" id="EmailAddress" name="EmailAddress" type="text" placeholder="Email">
+                                                            <label style="display: none;color:red;" class="EmailAddress_Err">Vui lòng nhập email của bạn</label>
                                                           </div>
                                                         </div>
                                                         <div class="form-group custom-form-group">
-                                                          <label class="col-sm-3 control-label custom-control-label">Ðịa Chỉ</label>
+                                                          <label class="col-sm-3 control-label custom-control-label">Địa chỉ nhận thưởng</label>
                                                           <div class="col-sm-9">
-                                                            <textarea class="form-control custom-form-textarea" rows="5" id="comment" placeholder="Ðịa chỉ"></textarea>
+                                                            <textarea class="form-control custom-form-textarea" rows="5" id="Address" name="Address" placeholder="Địa chỉ nhận thưởng"></textarea>
+                                                            <label style="display: none;color:red;" class="Address_Err">Vui lòng nhập địa chỉ của bạn</label>
                                                           </div>
                                                         </div>
                                                         <div class="pull-right">          
-                                                        <button type="button" class="btn custom-btn">Quay Thôi</button>
+                                                        <button type="button" class="btn custom-btn spin-now">Quay Thôi</button>
                                                         </div>
                                                         <div class="clearfix"></div>
                                                       </form>
@@ -187,24 +192,24 @@
                                     <div class="chart tab-pane active" id="sales-chart" style="position: relative;">
                                     <!-- GIAI THUONG -->
                                         <div class="table-responsive custom-table-responsive"> 
-                                        <table class="table table-striped table-sp">
-                                            <thead>
-                                                <tr>
-                                                    <th>Sản phẩm</th>
-                                                    <th>Số lượng</th>
-                                                    <th>Loại</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                 <?php foreach($itemR->LuckyDrawItemModel as $item) { ?>
-                                                    <tr style="background-color:#F7FFE0;">
-                                                        <td><img src="http://adsmanage.trathuong.com/Userfiles/LuckyDraw/ItemIcon/<?php echo $item->Icon; ?>" style="width:50px;height:50px;"></td>
-                                                        <td><?php echo $item->Quantity; ?></td>
-                                                        <td><?php echo $item->ItemName; ?></td>
+                                            <table class="table table-striped table-sp">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Sản phẩm</th>
+                                                        <th>Số lượng</th>
+                                                        <th>Loại</th>
                                                     </tr>
-                                                  <?php } ?>     
-                                            </tbody>
-                                    	</table>
+                                                </thead>
+                                                <tbody>
+                                            <?php foreach($itemR->LuckyDrawItemModel as $item) { ?>
+                                                <tr style="background-color:#F7FFE0;">
+                                                    <td><img src="http://adsmanage.trathuong.com/Userfiles/LuckyDraw/ItemIcon/<?php echo $item->Icon; ?>" style="width:50px;height:50px;"></td>
+                                                    <td><?php echo $item->Quantity; ?></td>
+                                                    <td><?php echo $item->ItemName; ?></td>
+                                                </tr>
+                                              <?php } ?>     
+                                                </tbody>
+                                        	</table>
                                     	</div>
 									<!--END GIAI THUONG -->
                                     </div>
@@ -253,16 +258,10 @@
                 </div>
             </div>
         </div>
-        <input type="hidden" value="img/luckydrawab3.png" id="spinImagePath" />
+        <input type="hidden" value="Bootstrap/images/table_quay.png" id="spinImagePath" />
         <input type="hidden" value="<?php echo $itemList; ?>" id= "itemNameList" />
         <!-- dong khung -->
-        <!-- tao tung khung  -->
-        <div class="row">
-            <div class="bg-quay" >             	
-            	<div class="baloon">                	
-                </div>       
-            </div>                                 
-        </div>
+        
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
