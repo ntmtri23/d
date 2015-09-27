@@ -17,7 +17,6 @@ body{
 .box-header {
     position: relative;
 }
-
 .box-body {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
@@ -120,6 +119,8 @@ body{
     padding: 10px;
     border-bottom-right-radius: 3px;
     border-bottom-left-radius: 3px;
+	max-height: 420px;
+    overflow-y: auto;
 }
 /*----------- MENU NAV-------------*/
 ul.menu > li.active a {
@@ -298,10 +299,12 @@ ul.menu > li{
     background-repeat: no-repeat;
 	position:absolute;
 	top:150px;
-	right:150px;
+	right:155px;
 	background-size: contain;
 	outline:none;
 }
+
+
 /*----------- THONG TIN-------------*/
 .custom-modal-content {
 	box-shadow:none;
@@ -419,6 +422,22 @@ ul.menu > li{
     top: 960;
     background-size: contain;
 }
+.custom-well .custom-form-control{
+	border-radius:0;
+} 
+.custom-well .modal-body{
+	padding:15px 0 0 0;
+}
+.custom-well .custom-control-label{
+	font-weight:normal;
+	padding-bottom:10px;
+}
+.custom-well .form-horizontal{
+	margin-bottom:0;
+}
+.custom-form-control1{
+	border-radius:0;
+}
 /*-----------END COMMENT-------------*/
 /*-----------GIAI THUONG-------------*/
 .custom-table-responsive .table-sp thead tr th{
@@ -529,7 +548,20 @@ ul.menu > li{
 }
 
 }
-@media screen and (max-width:1199px) {
+@media screen and (max-width:1199px) {	
+.custom-well .modal-body{
+	padding:0 0 20px 0;
+}
+.custom-well .form-right{
+	width:100%;
+}
+.custom-well .custom-control-label{
+	width:100%;
+	text-align:left;
+}
+.custom-well .custom-form-group{
+	margin-bottom:0;
+}
 .nav-tabs-custom .nav-tabs li:first-of-type{
     width: 36.5%;
 }
@@ -605,6 +637,13 @@ ul.menu > li{
 
 }
 @media screen and (max-width:767px) {
+.custom-well .modal-body{
+	padding:0 0 20px 0;
+}
+.custom-well .custom-control-label{
+	margin:0;
+	padding-top:10px;
+}
 .custom-table-responsive .table-sp thead,.custom-table-responsive .table-sp tbody{
 	font-size:15px;
 }

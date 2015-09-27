@@ -65,6 +65,7 @@
     {
         //var_dump($ex);
     }
+    var_dump($_SESSION['facebook_access_token']);
     $itemList = '';
     $itemR = simplexml_load_file('http://fbapp.trathuong.com/ActionService.asmx/GetItemList?luckydrawId=401a0f70-cc1d-e511-941c-001c42aaff6e');
 	foreach($itemR->LuckyDrawItemModel as $item)
@@ -88,7 +89,7 @@
                                 <div class="col-xs-2 pull-right"><button type="button" class="btn btn_facebook"></button></div>
                                 <div class="col-xs-2 pull-right"><button type="button" class="btn btn_like"></button></div>
                             	<div class="col-xs-4 pull-right share">
-                                	<button type="button" class="btn btn_share">CHIA SẼ</button>
+                                    <a href="Shared.php" class="btn btn_share">CHIA SẼ</a>
                                 </div>                               
                             </div>
                             <!-- /.khong chia-->                                              
@@ -144,24 +145,28 @@
                                                           <label class="col-sm-3 control-label custom-control-label">Tên Bạn</label>
                                                           <div class="col-sm-9">
                                                             <input class="form-control custom-form-control" name="UserName" id="UserName" type="text" placeholder="Tên Bạn">
+                                                            <label style="display: none;color:red;" class="UserName_Err">Vui lòng nhập tên của bạn</label>
                                                           </div>
                                                         </div>
                                                         <div class="form-group custom-form-group">
                                                           <label class="col-sm-3 control-label custom-control-label">Ðiện thoại</label>
                                                           <div class="col-sm-9">
                                                             <input class="form-control custom-form-control" name="PhoneNumber" id="PhoneNumber" type="text" placeholder="Ðiện thoại">
+                                                            <label style="display: none;color:red;" class="PhoneNumber_Err">Vui lòng nhập SDT của bạn</label>
                                                           </div>
                                                         </div>
                                                         <div class="form-group custom-form-group">
                                                           <label class="col-sm-3 control-label custom-control-label">Email</label>
                                                           <div class="col-sm-9">
                                                             <input class="form-control custom-form-control" id="EmailAddress" name="EmailAddress" type="text" placeholder="Email">
+                                                            <label style="display: none;color:red;" class="EmailAddress_Err">Vui lòng nhập email của bạn</label>
                                                           </div>
                                                         </div>
                                                         <div class="form-group custom-form-group">
-                                                          <label class="col-sm-3 control-label custom-control-label">Giới tính</label>
+                                                          <label class="col-sm-3 control-label custom-control-label">Địa chỉ nhận thưởng</label>
                                                           <div class="col-sm-9">
-                                                            <textarea class="form-control custom-form-textarea" rows="5" id="Gender" name="Gender" placeholder="Giới tính"></textarea>
+                                                            <textarea class="form-control custom-form-textarea" rows="5" id="Address" name="Address" placeholder="Địa chỉ nhận thưởng"></textarea>
+                                                            <label style="display: none;color:red;" class="Address_Err">Vui lòng nhập địa chỉ của bạn</label>
                                                           </div>
                                                         </div>
                                                         <div class="pull-right">          
@@ -265,16 +270,10 @@
                 </div>
             </div>
         </div>
-        <input type="hidden" value="img/luckydrawab3.png" id="spinImagePath" />
+        <input type="hidden" value="Bootstrap/images/table_quay.png" id="spinImagePath" />
         <input type="hidden" value="<?php echo $itemList; ?>" id= "itemNameList" />
         <!-- dong khung -->
-        <!-- tao tung khung  -->
-        <div class="row">
-            <div class="bg-quay" >             	
-            	<div class="baloon">                	
-                </div>       
-            </div>                                 
-        </div>
+        
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -285,32 +284,75 @@
     $(document).ready(function(){
         $('.btn_quay').click();
     });
+    var max_spin = 3;
     var lkdit = '401a0f70-cc1d-e511-941c-001c42aaff6e';
     var spinImagePath = $("#spinImagePath").val();
     begin(spinImagePath);
     var itemList = $('#itemNameList').val();
-    initialVariable(itemList, lkdit);
-    var username = $('#UserName').val();
-    var phoneNumber = $('#PhoneNumber').val();
-    var emailAddress = $('#EmailAddress').val();
     
+    initialVariable(itemList, lkdit);
+
     $('.spin-now').click(function(){
-         $.ajax({
-            type: 'GET',
-            url: 'save-infomation.php',
-            data: 'UserName=' + username + '&PhoneNumber=' + phoneNumber + '&EmailAddress=' + emailAddress,
-            success: function (response) {
-                console.log(response);
-                if (response == "1")
-                {
-                    $('.custom-close').click();
-                    startSpin('undefined', lkdit);
+        if(ValidationForm())
+        {
+            var username = $('#UserName').val();
+            var phoneNumber = $('#PhoneNumber').val();
+            var emailAddress = $('#EmailAddress').val();
+            $('.custom-close').click();
+            startSpin('undefined', lkdit);
+            $.ajax({
+                type: 'GET',
+                url: 'save-infomation.php',
+                data: 'UserName=' + username + '&PhoneNumber=' + phoneNumber + '&EmailAddress=' + emailAddress,
+                success: function (response) {
+                    if (response != "1"){ 
+                        alert("Bạn không thể thực hiện quay số vào lúc này");
+                    }
+                },
+                error: function () {
                 }
-            },
-            error: function () {
-            }
-        });
-        
+            });
+        }
+        else
+        {
+            return false;
+        }
     })
+    
+    function ValidationForm()
+    {
+        var isValid = true;
+        var username = $('#UserName').val();
+        var phoneNumber = $('#PhoneNumber').val();
+        var emailAddress = $('#EmailAddress').val();
+        if(username == '' || username == null)
+        {
+            $('.UserName_Err').show();
+            isValid = false;
+        }
+        else
+        {
+            $('.UserName_Err').hide();
+        }
+        if(phoneNumber == '' || phoneNumber == null)
+        {
+            $('.PhoneNumber_Err').show();
+            isValid = false;
+        }
+        else
+        {
+            $('.PhoneNumber_Err').hide();
+        }
+        if(emailAddress == '' || emailAddress == null)
+        {
+            $('.EmailAddress_Err').show();
+            isValid = false;
+        }
+        else
+        {
+            $('.EmailAddress_Err').hide();
+        }
+        return isValid;
+    }
 </script>
 </html>

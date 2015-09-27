@@ -128,8 +128,8 @@ function initialVariable(data,luckyDrawId)
 {
     //data = 'a,b,c,d,e,f,g,h';
     var arrPrizes = data.split(',');
-    prizes[0] = { "name": arrPrizes[0], "startAngle": 0, "endAngle": 44 };
-    for (var i = 1; i < arrPrizes.length; i++)
+    prizes[0] = { "name": arrPrizes[1], "startAngle": 0, "endAngle": 44 };
+    for (var i = 2; i < arrPrizes.length; i++)
     {
         prizes[i] = { "name": arrPrizes[i], "startAngle": 45 * i, "endAngle": 45 * i + 44 };
     }
@@ -143,7 +143,6 @@ function startSpin(determinedValue, luckyDrawId)
     resetWheel();
     if (determinedValue == 'undefined')
     {
-        console.log(determinedValue);
         var params = 'luckyDrawId=' + luckyDrawId;
         xhr.open('GET', determinedGetUrl + '?' + params, true);
         xhr.send("");
