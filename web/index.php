@@ -112,7 +112,7 @@
                                             <p class="noCanvasMsg" align="center">Ôi không?.Trình duyệt của bạn không hổ trợ html5<br />Hãy nâng c?p nó.</p>
                                         </canvas>
                                     	<!-- click quay -->
-                                        <a href="<?php echo $loginUrl; ?>" target="_top" class="btn btn-link btn_quay"></a>
+                                        <a href="<?php echo $loginUrl; ?>" target="_self" class="btn btn-link btn_quay"></a>
                                                      
                                           <!-- Modal -->
                                           <div class="modal fade" id="myModal" role="dialog">
