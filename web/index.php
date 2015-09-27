@@ -47,12 +47,6 @@
         	echo 111;
         }
     ?>
-    
-    <script type="text/javascript">
-      function PreSpin() {
-         window.open('<?php echo $loginUrl; ?>','_top');
-      }
-    </script>
 </head>
 <body>
     <?php 
@@ -64,6 +58,7 @@
     	}
         $resultR = simplexml_load_file('http://fbapp.trathuong.com/ActionService.asmx/GetHistoryList?luckydrawId=401a0f70-cc1d-e511-941c-001c42aaff6e');
     ?>
+   
     <!-- container -->
     <div class="container">
         <!-- tao tung khung  -->
@@ -117,7 +112,8 @@
                                             <p class="noCanvasMsg" align="center">Ôi không?.Trình duyệt của bạn không hổ trợ html5<br />Hãy nâng c?p nó.</p>
                                         </canvas>
                                     	<!-- click quay -->
-                                        <button type="button" class="btn btn-link btn_quay" onclick="PreSpin();"></button>                
+                                        <a href="<?php echo $loginUrl; ?>" target="_top" class="btn btn-link btn_quay"></a>
+                                                     
                                           <!-- Modal -->
                                           <div class="modal fade" id="myModal" role="dialog">
                                             <div class="modal-dialog">                                            
