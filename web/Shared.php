@@ -10,16 +10,17 @@
     $accessToken = isset($_SESSION['facebook_access_token']) ? $_SESSION['facebook_access_token'] : '';
     $params = array(
           "access_token" => $accessToken,
-          "message" => "Chuong tr�nh quay s? tr�ng thu?ng trathuong.com",
-          "link" => "http://demo.trathuong.com",
+          "message" => "Chương trình quay số trúng thưởng trathuong.com",
+          "link" => "https://apps.facebook.com/luckydraw-app/",
           "picture" => "http://www.upsieutoc.com/images/2015/09/28/bg_left.png",
-          "name" => "Chuong tr�nh quay s? tr�ng thu?ng",
+          "name" => "Chương trình quay số trúng thưởng",
           "caption" => "www.trathuong.com",
-          "description" => "Ch�ng t�i cung c?p c�c gi?i ph�p v? tr? thu?ng, li�n h? ngay h�m nay d? nh?n du?c uu d�i setup h? th?ng v� tu v?n nhi?u k?ch b?n ?ng d?ng."
+          "description" => "Chúng tôi cung cấp các giải pháp về trả thưởng, liên hệ ngay hôm nay để nhận được ưu đãi setup hệ thống và tư vấn nhiều kịch bản ứng dụng."
         );
         
     try {
       $ret = $fb->post('/me/feed', $params);
+      header('Location: login-callback.php');
     } catch(Exception $e) {
       echo $e->getMessage();
     }
