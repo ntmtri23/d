@@ -25,6 +25,7 @@
     <script type='text/javascript' src='js/winwheel_1.2.js'></script>
     
     <?php
+        header('X-Frame-Options: GOFORIT'); 
         try
         {
             session_start();
