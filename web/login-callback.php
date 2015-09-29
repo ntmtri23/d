@@ -29,7 +29,6 @@
 </head>
 
 <?php
-    header("X-Frame-Options: SAMEORIGIN"); 
     session_start();
     require_once( 'facebook/autoload.php' );
     define("LUCKY_DRAW_ID","401a0f70-cc1d-e511-941c-001c42aaff6e");
