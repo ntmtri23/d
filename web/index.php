@@ -2,7 +2,7 @@
     session_start();
     if(isset($_SESSION['facebook_access_token']))
     {
-        header('Location:login-callback.php');
+        header('Location:spin.php');
     }
     else
     {
