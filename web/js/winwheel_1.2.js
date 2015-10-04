@@ -130,9 +130,9 @@ function initialVariable(data,luckyDrawId)
     //data = 'a,b,c,d,e,f,g,h';
     var arrPrizes = data.split(',');
     prizes[0] = { "name": arrPrizes[1], "startAngle": 0, "endAngle": 44 };
-    for (var i = 2; i < arrPrizes.length; i++)
+    for (var i = 1; i < arrPrizes.length; i++)
     {
-        prizes[i] = { "name": arrPrizes[i], "startAngle": 45 * i, "endAngle": 45 * i + 44 };
+        prizes[i] = { "name": arrPrizes[i + 1], "startAngle": 45 * i, "endAngle": 45 * i + 44 };
     }
 }
 
