@@ -263,4 +263,11 @@
     <!-- Placed at the end of the document so the pages load faster -->
     
 </body>
+<script type="text/javascript">
+    var spinImagePath = $("#spinImagePath").val();
+    begin(spinImagePath);
+    var lkdit = '401a0f70-cc1d-e511-941c-001c42aaff6e';
+    var itemList = $('#itemNameList').val();
+    initialVariable(itemList, lkdit);
+</script>
 </html>

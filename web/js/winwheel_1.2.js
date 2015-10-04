@@ -126,7 +126,6 @@ function initialDraw(e)
 
 function initialVariable(data,luckyDrawId)
 {
-    console.log(data);
     //data = 'a,b,c,d,e,f,g,h';
     var arrPrizes = data.split(',');
     prizes[0] = { "name": arrPrizes[1], "startAngle": 0, "endAngle": 44 };
@@ -381,7 +380,6 @@ function doSpin()
 			// Now we can work out the prize won by seeing what prize segment startAngle and endAngle the relativeAngle is between.
 			for (x = 0; x < (prizes.length); x ++)
 			{
-			     console.log(prizes[x]);
 				if ((relativeAngle >= prizes[x]['startAngle']) && (relativeAngle <= prizes[x]['endAngle']))
 				{
 					// Do something with the knowlege. For this example the user is just alerted, but you could play a sound,

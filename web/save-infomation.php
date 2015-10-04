@@ -20,4 +20,5 @@
     {
         echo "0";
     }
+    session_destroy();
 ?>
