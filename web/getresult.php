@@ -6,8 +6,10 @@
     
     $itemRand = 360 / $totalItem;
     $startVal = $itemRand * ($itemR->Order - 1);
+   
     $endVal = $itemRand * $itemR->Order;
     $reponseVal = rand($startVal,$endVal);
+    
     $_SESSION['ItemId'] = $itemR->ID;
-    echo $reponseVal();
+    echo $reponseVal;
 ?>
