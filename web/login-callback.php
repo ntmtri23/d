@@ -59,7 +59,7 @@
           $request = $fb->get('/me?fields=id,name,gender,link,picture,age_range', $_SESSION['facebook_access_token']);
           // Exchange the short-lived token for a long-lived token.
           //$response = $request->execute();
-          $graphObject = $response->getGraphObject();
+          $graphObject = $request->getGraphObject();
           //$_SESSION['CurrentLoginUser'] = $response->getGraphUser();
           var_dump($graphObject);
         }
