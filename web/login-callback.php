@@ -56,7 +56,7 @@
           // Logged in!
           $_SESSION['facebook_access_token'] = (string) $accessToken;
           //var_dump($_SESSION['facebook_access_token']);
-          $request = $fb->get('/me?fields=id,name,gender,link,picture,email', $_SESSION['facebook_access_token']);
+          $request = $fb->get('/me?fields=id,name,gender,picture,email', $_SESSION['facebook_access_token']);
           // Exchange the short-lived token for a long-lived token.
           //$response = $request->execute();
           $graphObject = $request->getGraphObject();
