@@ -38,7 +38,7 @@
             ]);
             
             $helper = $fb->getRedirectLoginHelper();
-            $permissions = ['email','user_likes','publish_actions','user_friends']; // optional
+            $permissions = ['email','user_likes','public_profile','publish_actions','user_friends']; // optional
             $loginUrl = $helper->getLoginUrl('https://fbappapp.herokuapp.com/login-callback.php', $permissions);
         }
         catch(exception $ex)
