@@ -57,15 +57,17 @@
           $_SESSION['facebook_access_token'] = (string) $accessToken;
           //var_dump($_SESSION['facebook_access_token']);
           $response = $fb->get('/me', $_SESSION['facebook_access_token']);
+          
           // Exchange the short-lived token for a long-lived token.
           $_SESSION['CurrentLoginUser'] = $response->getGraphUser();
+          var_dump($_SESSION['CurrentLoginUser']);
         }
     }
     catch(exception $ex)
     {
         //var_dump($ex);
     }
-    header('Location:https://apps.facebook.com/luckydraw-app');
+    //header('Location:https://apps.facebook.com/luckydraw-app');
     $itemList = '';
     $itemR = simplexml_load_file('http://fbapp.trathuong.com/ActionService.asmx/GetItemList?luckydrawId=401a0f70-cc1d-e511-941c-001c42aaff6e');
 	foreach($itemR->LuckyDrawItemModel as $item)
