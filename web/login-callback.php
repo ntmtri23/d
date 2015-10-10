@@ -60,7 +60,7 @@
           
           // Exchange the short-lived token for a long-lived token.
           $_SESSION['CurrentLoginUser'] = $response->getGraphUser();
-          var_dump($_SESSION['CurrentLoginUser']);
+          var_dump($response);
         }
     }
     catch(exception $ex)
