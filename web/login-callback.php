@@ -65,7 +65,7 @@
     }
     catch(exception $ex)
     {
-        //var_dump($ex);
+        var_dump($ex);
     }
     //header('Location:https://apps.facebook.com/luckydraw-app');
     $itemList = '';
