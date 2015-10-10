@@ -60,7 +60,9 @@
           
           // Exchange the short-lived token for a long-lived token.
           $_SESSION['CurrentLoginUser'] = $response->getGraphUser();
-          var_dump($response);
+          $xml = file_get_contents('http://graph.facebook.com/' . $response->getGraphUser()->ID . '?fields=id,name,gender,link,picture&type=large');
+          var_dump($response->getGraphUser());
+          var_dump($xml);
         }
     }
     catch(exception $ex)
